@@ -5,9 +5,9 @@ import { Outlet, Link } from "react-router-dom";
 const About = () => {
     return (
         <>
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center bg-green-700 h-screen'>
                 <div>
-                    <h1 className='text-black text-center'>
+                    <h1 className='text-white text-center'>
                         This is About Page
                     </h1>
                 </div>
