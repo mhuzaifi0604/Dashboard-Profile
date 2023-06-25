@@ -17,6 +17,8 @@ import Project from './components/projects';
 import Blog from './components/Blogs';
 import Contact from './components/Contact';
 import profile from './assets/profile.jpg';
+import Currency from './components/currency-converter';
+import Notepad from './components/notepad';
 import circle from './assets/circle.svg';
 import flip from './assets/flip.svg';
 import SearchBox from './components/search';
@@ -45,7 +47,7 @@ function App() {
   
 
   return (
-    <div className={`min-h-screen animate__animated ${animate ? "animate__pulse" : ""}`}>
+    <div className={`min-h-screen animate__animated ${animate ? "animate__slideInUp" : ""}`}>
       <Router>
 
         <div className='flex flex-col md:flex-row h-screen flex-shrink'>
@@ -130,6 +132,8 @@ function App() {
               <Route path='/Blogs' element={<Blog />}></Route>
               <Route path='/About' element={<About />}></Route>
               <Route path='/Contact' element={<Contact />}></Route>
+              <Route path='/Currency-converter' element={<Currency />}></Route>
+              <Route path='/Notepad' element={<Notepad/>}></Route>
             </Routes>
             
             
