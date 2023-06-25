@@ -45,13 +45,13 @@ function App() {
   
 
   return (
-    <div className={`animate__animated ${animate ? "animate__pulse" : ""}`}>
+    <div className={`min-h-screen animate__animated ${animate ? "animate__pulse" : ""}`}>
       <Router>
 
-        <div className='flex flex-row h-screen'>
-          <div className="basis-1/5 drop-shadow-2xl shadow-black">
+        <div className='flex flex-col md:flex-row h-screen flex-shrink'>
+          <div className="flex-shrink basis-1/5 drop-shadow-2xl shadow-black border-2 border-l-0 border-pink-950">
             <div className='h-1/4 bg-[#202126]'>
-              <div className="flex justify-center items-center p-4 pb-2">
+              <div className="flex flex-shrink-0 justify-center items-center p-4 pb-2">
                 <img src={profile} alt="My Image" className="w-28 h-28 rounded-full" />
               </div>
               <div>
@@ -59,8 +59,8 @@ function App() {
                 <p className='text-white text-center font-serif font-normal'>Penetration Tester</p>
               </div>
             </div>
-            <div className='flex-none h-2/4 bg-[#202126]'>
-              <div className="flex justify-center items-center pt-8">
+            <div className='flex-none flex-shrink-0 h-2/4 bg-[#202126]'>
+              <div className="flex flex-shrink justify-center items-center pt-8">
                 <nav>
                   <ul className='items-center'>
                     <li className='font-sans font-md p-6 text-center font-extrabold text-[#6A6A6A] hover:text-white hover:underline'>
@@ -83,8 +83,8 @@ function App() {
                 </nav>
               </div>
             </div>
-            <div className='flex self-end h-1/4 bg-[#202126]'>
-              <div className="flex items-end ml-5">
+            <div className='flex flex-shrink self-end h-1/4 bg-[#202126]'>
+              <div className="flex flex-shrink items-end ml-5">
                 <Link to="https://github.com/mhuzaifi0604" className='flex items-end'>
                   <FontAwesomeIcon icon={faGithub} className="text-[#6a6a6a] hover:text-white text-2xl m-3" />
                 </Link>
@@ -107,8 +107,8 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="basis-4/5 bg-[#1b1b1e]">
-            <div className="flex flex-row bg-[#27282b] h-14 justify-center items-center drop-shadow-2xl">
+          <div className="basis-4/5 bg-[#1b1b1e] overflow-y-auto">
+            <div className="flex flex-shrink flex-row bg-[#27282b] h-14 justify-center items-center drop-shadow-2xl">
               <div className='basis-1/2 justify-center items-center'>
                 <SearchBox onSearch={handleSearch} />
               </div>
@@ -132,9 +132,7 @@ function App() {
               <Route path='/Contact' element={<Contact />}></Route>
             </Routes>
             
-  <footer className="bg-[#27282b] h-14 drop-shadow-2xl fixed bottom-0 w-full justify-center items-center">
-      <p className='text-center mt-4 fixed right-1/2 text-white underline font-sans italic'>&copy; Muhammad_Huzaifa Copyrights Reserved.</p>
-  </footer>
+            
 
 
           </div>
