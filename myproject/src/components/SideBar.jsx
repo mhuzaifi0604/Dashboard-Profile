@@ -46,8 +46,8 @@ function SideBar (){
                     <li className={`font-sans font-md p-4 text-center font-extrabold ${location === '/Contact' ? "text-pink-500 underline" : "text-white hover:underline"} `}>
                       <Link to="/Contact">Contact</Link>
                     </li>
-                    <li className={`font-sans font-md p-4 text-center font-extrabold ${location === '/Chat' ? "text-pink-500 underline" : "text-white hover:underline"} `}>
-                      <Link to="/Chat">Chat With Me</Link>
+                    <li className={`font-sans font-md p-4 text-center font-extrabold ${location === '/Communicate' ? "text-pink-500 underline" : "text-white hover:underline"} `}>
+                      <Link to="/Communicate">Chat With Me</Link>
                     </li>
                   </ul>
                 </nav>

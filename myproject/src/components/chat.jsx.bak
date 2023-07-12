@@ -1,0 +1,188 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import RotateLoader from 'react-spinners/RotateLoader';
+import access_key from './access_key.json';
+const projectId = access_key.project_id; // Replace with your Dialogflow project ID
+const sessionId = '1234'; // A unique session ID for each conversation
+const languageCode = 'en-US'; // The language code of your agent
+
+const Chat = () => {
+  const [text, setText] = useState('');
+  const [array, setArray] = useState([{
+    message: "",
+    sender: "ChatAI"
+  }]);
+  const [result, setResult] = useState('');
+  const [check, setCheck] = useState(true);
+  const [loading, setloading] = useState(false);
+  const API_KEY = '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';
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setCheck(false);
+
+    const data = {
+      queryInput: {
+        text: {
+          text: text,
+          languageCode: languageCode,
+        },
+      },
+    };
+  
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${access_key.private_key}`,
+    };
+  
+    try {
+      const response = await axios.post(`https://dialogflow.googleapis.com/v2/projects/${projectId}/agent/sessions/${sessionId}:detectIntent`
+      , data, { headers });
+      const reply = response.data.queryResult.fulfillmentText;
+      // Process the chatbot's response
+      console.log(reply);
+      setResult(reply);
+    } catch (error) {
+      console.error('Error:', error);
+      setResult('Something Went wrong')
+    }
+  }
+    
+    // const new_message = {
+    //   message: text,
+    //   sender: 'user'
+    // }
+
+    // const All_Messages = [...array, new_message];
+    // setArray(All_Messages.slice(1));
+
+    // await send_message(All_Messages);
+
+    // if (text.trim() !== '') {
+    //   setArray((prevTasks) => [...prevTasks, text.trim()]);
+    //   setText('');
+    // }
+  
+    // try {
+    //   const requestBody = {
+    //     model: 'gpt-3.5-turbo',
+    //     messages: [{ role: 'user', content: text }],
+    //     temperature: 0.7,
+    //   };
+
+    //   const response = await axios.post(
+    //     'https://api.openai.com/v1/chat/completions',
+    //     requestBody,
+    //     {
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Authorization: `Bearer ${API_KEY}`,
+    //       },
+    //     }
+    //   );
+
+    //   setResult(response.data.choices[0].message.content);
+    // } catch (error) {
+    //   console.error('Failed to complete communication:', error);
+    //   console.log('Error response:', error.response); // Log the error response
+    //   setResult('Something went wrong!');
+    // }
+
+  async function send_message(All_Messages) {
+    setloading(true);
+    let Messages = All_Messages.map((message) => {
+      let role = message.sender === 'Chat-AI' ? 'assistant' : 'user';
+      return { role: role, content: message.message }
+    });
+    const systemmessage = {
+      role: "system",
+      content: "Explan like a child",
+    }
+    const apirequestbody = {
+      "model": "gpt-3.5-turbo",
+      "messages": [
+        systemmessage,
+        ...Messages
+      ]
+    }
+    try {
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', apirequestbody, {
+      headers: {
+        Authorization: 'Bearer ' + API_KEY,
+        'Content-Type': 'application/json',
+      },
+    });
+    setResult(response.data);
+    setloading(false);
+    } catch (error) {
+      console.error(error);
+        setResult('Sorry! Cannot Reply At This Time. Try Sometime Again.');
+        setloading(false);
+    }
+  }
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  return (
+    <div className="flex flex-col h-screen p-4 m-4">
+      <div className="h-full w-full justify-center items-center">
+        <div className="h-4/5 w-full justify-center items-center">
+          {check ? (
+            'Welcome To Chat Application!'
+          ) : (
+            
+            <div>
+              <div className='flex justify-start'>
+                
+              <div className='p-1 mt-2 bg-black bg-opacity-40 border border-pink-900 text-white text-md font-sans rounded-full h-10 w-10 text-center'>You</div>
+            <div
+              className="p-2 m-2 bg-black bg-opacity-40 border border-pink-900 text-white font-bold text-md font-sans rounded-full"
+            >
+              {text}
+            </div>
+            </div>
+                
+              {loading ?
+              <div className="flex justify-center items-center h-screen">
+        <RotateLoader color="teal" size={10} loading={loading} />
+    </div>
+            :
+            <div className='flex justify-end'>
+            <div className="flex justify-end p-2 m-2 bg-black bg-opacity-40 border border-pink-900 text-white font-bold text-md font-sans rounded-full">
+                {result}
+              </div>
+              <div className='p-1 mt-2 bg-black bg-opacity-40 border border-pink-900 text-white text-md font-sans rounded-full h-10 w-10 text-center'>API</div>
+              </div>
+            }
+              
+            </div>
+
+          )}
+        </div>
+        <div className="flex 1-4/5 w-full justify-center items-center mt-4">
+          <form className="flex w-full text-white">
+            <input
+              type="text"
+              className="w-full h-12 m-2 p-2 text-white bg-black bg-opacity-40 rounded-full border-2 border-pink-70"
+              placeholder="Enter Query ..."
+              value={text}
+              onChange={handleChange}
+              required
+            />
+            <button
+              type="button"
+              className="h-10 w-12 m-3 rounded-md p-1 mdtext- font-bold bg-pink-500"
+              onClick={handleSubmit}
+            >
+              Chat
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Chat;
