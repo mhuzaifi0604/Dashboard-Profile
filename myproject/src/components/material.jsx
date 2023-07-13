@@ -22,9 +22,7 @@ function Materials() {
   
 
   return (
-    <>
-    
-            
+    <>            
     <div className='basis-1/3 justify-center items-center'>
                 <SearchBox onSearch={handleSearch} />
               </div>

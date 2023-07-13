@@ -53,7 +53,7 @@ function SideBar (){
                 </nav>
               </div>
             </div>
-            <div className='flex flex-shrink self-end h-1/4 bg-[#202126]'>
+            <div className='flex flex-shrink self-end h-1/4 bg-[#202126] justify-center'>
               <div className="flex flex-shrink items-end ml-5">
                 <Link to="https://github.com/mhuzaifi0604" className='flex items-end'>
                   <FontAwesomeIcon icon={faGithub} className="text-[#6a6a6a] hover:text-white text-2xl m-3" />
