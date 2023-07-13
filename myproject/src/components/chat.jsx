@@ -15,8 +15,8 @@ const Chat = () => {
     const sqlInjectionPattern = /[';]|(--[^\r\n]*)|(\/\*[\w\W]*?(?=\*)\*\/)/gi;
     useEffect(() => {
         const handleChatMessage = (message) => {
-            console.log(message.username);
-            console.log(getuser);
+            // console.log(message.username);
+            // console.log(getuser);
                setMessages((prevMessages) => [...prevMessages, message]);
           };
         

@@ -46,7 +46,7 @@ function App() {
               <Route path='/Blogs' element={<Blog />}/>
               <Route path='/About' element={<About />}/>
               <Route path='/Contact' element={<Contact />}/>
-              <Route path='/Communicate' element={<Chat />}/>
+              <Route path='/Chat' element={<Chat />}/>
               <Route path='/Currency-converter' element={<Currency />}/>
               <Route path='/Notepad' element={<Notepad/>}/>
             </Routes>
