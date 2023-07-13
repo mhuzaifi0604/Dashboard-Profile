@@ -24,11 +24,11 @@ const TimelineGraph = () => {
         </text>
         <circle cx="960" cy="80" r="12" fill="rgba(123, 213, 133, 1)" />
         <text x="920" y="60" className="text-sans text-sm italic text-bold text-center">
-          😈 Sem-05: 3.63
+          🔥 Sem-05: 3.63
         </text>
         <circle cx="1188" cy="105" r="12" fill="rgba(255, 99, 132, 1)" />
-        <text x="1128" y="145" className="text-sans text-sm italic text-bold text-center">
-          🔥 Sem-06: 3.96
+        <text x="1095" y="145" className="text-sans text-sm italic text-bold text-center">
+          😈 Sem-06: 3.96
         </text>
         <path
              d="M110,100 Q225,140 350,100 Q475,60 600,100 Q725,140 850,100 Q975,60 1100,100 Q1125,110 1200,105"

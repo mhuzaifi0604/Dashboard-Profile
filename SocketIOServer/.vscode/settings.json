@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/1ee15f59-00f2-482c-bdec-2ec070c924d8/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/huzaifa-chat",
+    "appService.deploySubpath": "."
+}

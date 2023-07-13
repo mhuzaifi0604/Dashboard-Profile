@@ -11,7 +11,7 @@ const Chat = () => {
     const [getuser, setgetuser] = useState('');
     const [counter, setCounter]=useState(0);
     const [error, setError] = useState('');
-    const socket = io('http://localhost:8000');
+    const socket = io('http://dashboard-chat-51d54ee6778b.herokuapp.com:8000');
     const sqlInjectionPattern = /[';]|(--[^\r\n]*)|(\/\*[\w\W]*?(?=\*)\*\/)/gi;
     useEffect(() => {
         const handleChatMessage = (message) => {
