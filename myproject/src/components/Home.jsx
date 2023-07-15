@@ -132,17 +132,17 @@ const Home = () => {
 
     return (
         <>
-            <div className='flex flex-grow flex-shrink mt-8'>
-                <div className="flex-grow flex-shrink overflow-auto p-4 pb-0 border border-pink-400 rounded-md mx-3 w-3/5 h-64 ml-8 bg-[#212121] hover:bg-pink-950 hover: bg-opacity-90 hover:animate-pulse hover:shadow-gray-700 hover:shadow-md">
+            <div className='flex flex-col mt-8 sm:flex-row'>
+                <div className="flex-grow flex-shrink overflow-auto p-4 pb-0 border border-pink-400 rounded-md mx-3 w-full sm:w-3/5 h-64 ml-8 bg-[#212121] hover:bg-pink-950 hover:bg-opacity-90 hover:animate-pulse hover:shadow-gray-700 hover:shadow-md">
                     <p className="text-pink-200 font-serif text-2xl font-extrabold text-justify">About Me</p>
                     <p className="text-white text-sm text-justify font-sans font-normal leading-8 italic">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         Huzaifa is a Final-Year Cyber Security student at FAST-NUCES
-                        with a passion for secure software developmeent, penetration testing & protection against digital threats.
+                        with a passion for secure software development, penetration testing & protection against digital threats.
                     </p>
                     <p className="text-white text-sm text-justify font-sans font-normal leading-8 italic">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Throughout his career, huzaifa has honed his skills in different fields like:</p>
+                        Throughout his career, Huzaifa has honed his skills in different fields like:</p>
                     <ol className="leading-8">
                         <li>
                             <span className="text-white text-sm text-left font-sans italic font-normal">🖥&nbsp;Web Development</span>
@@ -159,9 +159,8 @@ const Home = () => {
                         Scroll Down & get to Know Huzaifa More...
                     </p>
                 </div>
-                <div className={`flex-grow flex-shrink p-4 border border-pink-400 rounded-md mx-6 shadow-md shadow-gray-700 ml-10 
-  flex flex-col justify-center items-center w-1/3 h-72 bg-gradient-to-r from-[#292b48] via-[#292b48] to-[#292b48] ${animate ? "animate__animated animate__bounceInUp" : ""}`}>
-
+                <div className={`flex-grow flex-shrink p-4 border border-pink-400 rounded-md mx-6 shadow-md shadow-gray-700 ml-10 mt-4 mb-4 
+        flex flex-col justify-center items-center w-full sm:w-1/3 h-72 bg-gradient-to-r from-[#292b48] via-[#292b48] to-[#292b48] ${animate ? "animate__animated animate__bounceInUp" : ""}`}>
                     <p className="text-white text-center p-0 m-0 font-sans font-bold">Portfolio Visit Graph</p>
                     {showGraph ? (
                         <Radar data={data} options={options} className="ml-8 w-full h-9/10 animate-pulse" />
@@ -172,6 +171,7 @@ const Home = () => {
                     )}
                 </div>
             </div>
+
             <div className="flex-grow flex-shrink overflow-x-auto overflow-y-hidden ml-8 -mt-2 w-3/5">
                 <div className="flex justify-start items-end">
                     <h1 className="text-white text-left font-serif font-bold italic">
@@ -184,7 +184,7 @@ const Home = () => {
 
 
             </div>
-            <div className="flex w-90/100 m-12 mt-4 mb-6 rounded-lg h-32 border-pink-600 shadow-2xl border-2 text-white justify-center items-center bg-gradient-to-r from-pink-900 via-[#fc6c85] to-pink-950 bg-opacity-80">
+            <div className="flex w-full mt-4 mb-6 rounded-lg h-32 border-pink-600 shadow-2xl border-2 text-white justify-center items-center bg-gradient-to-r from-pink-900 via-[#fc6c85] to-pink-950 bg-opacity-80">
                 <Timeline />
             </div>
             <div className="flex-grow flex-shrink relative">
@@ -193,8 +193,8 @@ const Home = () => {
                     <span className="text-pink-600 text-lg font-serif">Tools I'm Familiar With</span>
                 </div>
             </div>
-            <div className="flex-grow flex-shrink w-90/100 h-40 shadow-white m-10 mt-6">
-                <div className="flex flex-grow flex-shrink justify-center items-center w-90/100 h-20 ml-10 mr-10 mt-0">
+            <div className="flex-grow flex-shrink w-90/100 h-44 shadow-white m-8 mt-6">
+                <div className="flex justify-center items-center w-90/100 h-1/2 overflow-x-auto">
                     <img src={medium} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={splunk} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={Azure} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
@@ -205,13 +205,13 @@ const Home = () => {
                     <img src={react} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={kali} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                 </div>
-                <div className="flex flex-grow flex-shrink justify-center items-center w-90/100 h-20 m-10 mt-0">
+                <div className="flex justify-center items-center w-90/100 h-1/2 overflow-x-auto">
                     <img src={cpp} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={py} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={js} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={HTML5} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
                     <img src={sql} alt="My Image" className="w-14 h-14 hover:w-16 hover:h-16 m-2" />
-                </div>
+                </div></div><div className="p-4">
                 <div className={`flex-grow flex-shrink relative ${animate ? "animate__slideIn" : ""}`}>
                     <div className="border-t border-pink-600 m-4"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#1b1b1e] px-4">
@@ -247,7 +247,7 @@ const Home = () => {
 
                     <div className={`flex flex-grow flex-shrink overflow-auto basis-2/3 bg-[#212121] border-2 border-pink-900 w-2/3 h-32 ml-40 mt-14 rounded-md my-div transform transition-transform duration-500 ${inView2 ? 'translate-y-5' : '-translate-y-5'}`}>
                         <h1 className="p-2 text-lg text-justify font-bold font-serif text-pink-500 italic">
-                        Blue Team Trainer, Cyber Space Legion
+                            Blue Team Trainer, Cyber Space Legion
                             <p className="text-white text-sm text-justify font-sans font-normal leading-8 italic">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 Blue team trainer updating juniorstudents on latest cybersecurity trends and practices and:

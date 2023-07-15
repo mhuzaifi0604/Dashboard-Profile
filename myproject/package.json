@@ -20,6 +20,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
+    "firebase": "^10.0.0",
     "json-loader": "^0.5.7",
     "openai": "^3.3.0",
     "react": "^18.2.0",

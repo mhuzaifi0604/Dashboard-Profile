@@ -1,9 +1,9 @@
 import React from 'react';
 
 const TimelineGraph = () => {
-    
+
   return (
-    
+
     <div className="flex w-full justify-center items-center">
       <svg className="w-full mr-8 fill-white" viewBox="0 0 1200 200">
         <circle cx="99" cy="98" r="12" fill="#800000" />
@@ -31,7 +31,7 @@ const TimelineGraph = () => {
           😈 Sem-06: 3.96
         </text>
         <path
-             d="M110,100 Q225,140 350,100 Q475,60 600,100 Q725,140 850,100 Q975,60 1100,100 Q1125,110 1200,105"
+          d="M110,100 Q225,140 350,100 Q475,60 600,100 Q725,140 850,100 Q975,60 1100,100 Q1125,110 1200,105"
           fill="transparent"
           stroke="white"
           strokeWidth="1"
