@@ -36,3 +36,22 @@ This Feature renders an interface which is responsible for the following tasks
 * When 2nd user will log in he will get the broadcasted message as: <br><br>
 <img src="./pics/Screenshot_12.png" alt="gui"><br><br>
 When You will Click on Bin icon on the right the chat screen will get cleared.
+
+# New Feature Added
+This is a Login Feature for the Chat application:
+* A User need to authenticate himslef before he enters the chatroom.<br>
+* when clicking on Chat With me if user is not logged in he will be redirected to the login page.<br>
+* After login he will get to the Chat app.<br>
+* an additional feature of Logout button has been implemented in Chat page.<br>
+* clciking on Logout, user will get back to login page and will not be able to get back in without logging in again.<br>
+* Authentication is being done using firebase user authentication mechanism.<br>
+* Logging user out on clickin back button on browser has not been implemented since it is inconvenient for user to log in again and again in a single session, however, if the page gets refreshed the user will get logged out.<br><br>
+Here is what the login Page Looks Like:<br>
+Clicked on "Chat With Me" but ended up on Login Page Since i was not logged in
+<img src="./pics/Screenshot_13.png" alt="gui"><br><br>
+Now let's Login
+<img src="./pics/Screenshot_14.png" alt="gui"><br><br>
+In the Chat room, you can see the Logout button right beside the delete chat button<br><br>
+<img src="./pics/Screenshot_15.png" alt="gui"><br><br>
+Clciking on Logout button got me logged out of Chat rrom in to the login page and you van see that there is no forward browser button to get back into the Chat room without signing in.
+<img src="./pics/Screenshot_16.png" alt="gui"><br><br>
