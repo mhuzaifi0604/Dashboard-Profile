@@ -43,6 +43,7 @@ const Chat = ({isLoggedIn, setIsLoggedIn}) => {
             return;
         }
         setError('');
+        setText('');
         setCheck(false);
         setLoading(false);
         socket.emit('chat_message', { data: text, username: getuser, key: counter });
