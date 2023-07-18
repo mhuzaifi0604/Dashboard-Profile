@@ -7,7 +7,7 @@ import firebaseConfig from './Configuration';
 
 initializeApp(firebaseConfig);
 
-const LoginPage = ({setIsLoggedIn}) => {
+const LoginPage = ({setIsLoggedIn, isLoggedIn}) => {
   const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -35,9 +35,6 @@ const LoginPage = ({setIsLoggedIn}) => {
 
   return (
     <div className="flex flex-col h-full w-full items-center"> 
-      {/* <div className='flex basis-1/12 w-full items-center justify-center'>
-        <h2 className='font-bold text-xl text-white'>Login Page</h2>
-      </div> */}
       <div className='flex basis-full w-full items-center justify-center'>
       <form onSubmit={handleLogin} className="m-5 mt-0 p-6 w-2/5 h-3/5 border-2 border-pink-900 bg-[#1b1b1e] backdrop-filter backdrop-blur-md shadow-md shadow-gray-700 rounded-md">
       <div className='flex flex-col justify-center items-center text-center'>
