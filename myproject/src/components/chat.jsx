@@ -30,7 +30,7 @@ const Chat = ({isLoggedIn, setIsLoggedIn}) => {
             socket.off('chat_message', handleChatMessage);
         };
         }, [getuser]);
-    
+        
     const handleSubmit = (event) => {
         console.log(messages);
         event.preventDefault();
@@ -68,16 +68,19 @@ const Chat = ({isLoggedIn, setIsLoggedIn}) => {
         }
         setError('');
         setCheck1(true);
+        //setIsLoggedIn(true);
     };
     const handledelete = () => {
         setMessages([]);
     }
-    const handlelogout= () => {
-        if (isLoggedIn){
-        setIsLoggedIn(false);
-        navigate('/Login');
+
+      
+    const handlelogout = () => {
+        if (isLoggedIn) {
+            //setIsLoggedIn(false);
+            navigate('/Login');
         }
-    }
+      };
 
     return (
         <div className="flex flex-col h-screen p-4 m-2 overflow-hidden">

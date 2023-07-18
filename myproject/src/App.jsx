@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import 'chart.js/auto';
 import About from './components/About';
@@ -30,11 +30,11 @@ function App() {
   const [animate, setAnimate] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileScreen, setMobileScreen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  
   useEffect(() => {
     setAnimate(true);
-  }, []);
+}, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -85,7 +85,7 @@ function App() {
               />
               <Route
                 path="/Login"
-                element={<LoginPage setIsLoggedIn={setIsLoggedIn} />}
+                element={<LoginPage setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
               />
             </Routes>
           </div>
