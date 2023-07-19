@@ -17,6 +17,7 @@
     "@google-cloud/dialogflow": "^5.9.0",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "@reduxjs/toolkit": "^1.9.5",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
@@ -28,6 +29,7 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-intersection-observer": "^9.5.1",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.13.0",
     "react-spinners": "^0.13.8",
     "socket.io-client": "^4.7.1"

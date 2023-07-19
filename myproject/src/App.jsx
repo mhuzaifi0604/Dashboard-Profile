@@ -1,6 +1,7 @@
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import 'chart.js/auto';
+import {useSelector } from 'react-redux/es/hooks/useSelector';
 import About from './components/About';
 import Home from './components/Home';
 import Project from './components/projects';
@@ -15,7 +16,7 @@ import Collapsed from './components/collapsed_sidebar';
 import LoginPage from './components/login.jsx';
 import 'animate.css';
 
-const PrivateRoute = ({ component: Component, isLoggedIn, setIsLoggedIn, ...rest }) => {
+const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!isLoggedIn) {
@@ -23,14 +24,16 @@ const PrivateRoute = ({ component: Component, isLoggedIn, setIsLoggedIn, ...rest
     }
   }, [isLoggedIn]);
 
-  return isLoggedIn ? <Component {...rest} isLoggedIn= {isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> : null;
+  return isLoggedIn ? <Component {...rest} isLoggedIn= {isLoggedIn} /> : null;
 };
 
 function App() {
   const [animate, setAnimate] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileScreen, setMobileScreen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  //const [isLoggedIn, setIsLoggedIn] = useState(null);
+  //const {value} = useSelector((state) => state.loggedin)
+  const value = useSelector((state) => state.loggedin.value);
   
   useEffect(() => {
     setAnimate(true);
@@ -81,11 +84,11 @@ function App() {
               <Route path="/Notepad" element={<Notepad />} />
               <Route
                 path="/Chat"
-                element={<PrivateRoute component={Chat} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+                element={<PrivateRoute component={Chat} isLoggedIn={value} />}
               />
               <Route
                 path="/Login"
-                element={<LoginPage setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />}
+                element={<LoginPage />}
               />
             </Routes>
           </div>

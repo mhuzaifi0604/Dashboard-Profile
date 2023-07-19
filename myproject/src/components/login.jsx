@@ -2,18 +2,21 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from './Configuration';
+import { setfalse, settrue } from './Slicer';
 
 initializeApp(firebaseConfig);
 
-const LoginPage = ({setIsLoggedIn, isLoggedIn}) => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const [check, setcheck] = useState(false);
-
+    const dispatch = useDispatch();
+    const value = useSelector((state) => state.loggedin.value);
   const handleLogin = async(event) => {
     event.preventDefault();
     try{
@@ -21,10 +24,14 @@ const LoginPage = ({setIsLoggedIn, isLoggedIn}) => {
       await signInWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       const uid = user.uid;
-      setIsLoggedIn(true);
+      //setIsLoggedIn(true);
+      dispatch(settrue());
+      //console.log('loginpagetrue: ', value);
       navigate('/Chat');
     }catch (error) {
-      setIsLoggedIn(false);
+      //setIsLoggedIn(false);
+      dispatch(setfalse());
+      //console.log('loginpagefalse: ', value);
       navigate('/login');
       setError('Invalid Email or Password');
       setEmail('');
@@ -32,6 +39,9 @@ const LoginPage = ({setIsLoggedIn, isLoggedIn}) => {
       console.log('error: ', error)
   }
   };
+  useEffect(() => {
+    console.log('Login Page - Value changed:', value);
+  }, [value]);
 
   return (
     <div className="flex flex-col h-full w-full items-center"> 
