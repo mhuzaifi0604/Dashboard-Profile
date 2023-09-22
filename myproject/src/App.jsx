@@ -37,7 +37,21 @@ function App() {
   
   useEffect(() => {
     setAnimate(true);
-}, []);
+  }, []);
+  
+  useEffect(() => {
+    // Change the tab title when the component mounts
+    document.title = 'Muhammad Huzaifa';
+
+    // You can also change the title dynamically based on some state or props.
+    // For example, if you have a variable `pageTitle` that you want to use as the title:
+    // document.title = pageTitle;
+
+    // Remember to reset the title when the component unmounts to avoid side effects.
+    return () => {
+      document.title = 'Vite + React';
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
