@@ -15,6 +15,7 @@ import Materials from './components/material';
 import Collapsed from './components/collapsed_sidebar';
 import LoginPage from './components/login.jsx';
 import 'animate.css';
+import axios from 'axios'
 
 const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => {
   const navigate = useNavigate();
@@ -51,6 +52,48 @@ function App() {
     return () => {
       document.title = 'Vite + React';
     };
+  }, []);
+
+  useEffect(() => {
+    async function captureIPAndSend() {
+      try {
+        // Collect user's IP
+        const userIP = await fetch('https://api.ipify.org?format=json')
+          .then((response) => response.json())
+          .then((data) => data.ip);
+        
+        const data = userIP + " Just visited Your Site"
+        // Prepare the data to be sent to Formspree
+        const dataToSend = {
+          data,
+        };
+        
+        
+        
+        // Send data to Formspree's endpoint
+        const response = await fetch('https://formspree.io/f/mgejndpa', {
+          method: 'POST',
+          body: JSON.stringify(dataToSend),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          // Submission was successful
+          // You can add your success handling logic here
+        } else {
+          // Submission failed
+          // You can add your error handling logic here
+          console.error('Form submission failed.');
+        }
+      } catch (error) {
+        console.error('Error capturing IP and sending to Formspree:', error);
+      }
+    }
+
+    // Call the function to capture IP and send to Formspree
+    captureIPAndSend();
   }, []);
 
   useEffect(() => {
